@@ -1353,7 +1353,7 @@ select.input-small {
   color: #737373;
 }
 .input-group {
-  display: table;
+  display: block;
   border-collapse: separate;
 }
 .input-group.col {
