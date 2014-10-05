@@ -37,6 +37,12 @@
         <br>
         <a class="navbar-brand" href="{% url 'wiki:root' %}"> Technology βιβλιοθήκη </a>
         {% endblock %}
+        <li class="pull-right{% if selected == "history" %} active{% endif %}">
+  <a href="{% url 'wiki:history' article_id=article.id path=urlpath.path %}">
+    <span class="icon-time"></span>
+    {% trans "Changes" %}
+  </a>
+</li>
         <div class="nav-collapse collapse navbar-responsive-collapse">
           <form class="navbar-form pull-right-block-on-responsive" id="wiki-search-form" method="GET" action="{% url 'wiki:search' %}">
             <div class="input-group">
