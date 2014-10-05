@@ -2333,6 +2333,8 @@ button.close {
 .navbar-nav {
   margin-top: 10px;
   margin-bottom: 15px;
+  display: block;
+  width: auto;
 }
 .navbar-nav > li > a {
   padding-top: 15px;
