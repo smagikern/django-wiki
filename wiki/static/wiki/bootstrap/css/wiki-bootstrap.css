@@ -4647,7 +4647,7 @@ textarea.form-vertical .wiki-control textarea {
     float: right;
   }
   #wiki-search-form {
-    width: initial;
+    width: 100%;
   }
 }
 /******************************
