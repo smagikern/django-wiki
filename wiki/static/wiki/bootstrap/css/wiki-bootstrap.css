@@ -2425,13 +2425,13 @@ button.close {
   margin-top: 4px;
 }
 .navbar-form {
-  margin-top: 6px;
-  margin-bottom: 6px;
+  /*margin-top: 6px;
+  margin-bottom: 6px;*/
 }
 .navbar-form .form-control,
 .navbar-form .radio,
 .navbar-form .checkbox {
-  display: inline-block;
+  display: block;
 }
 .navbar-form .radio,
 .navbar-form .checkbox {
