@@ -2383,10 +2383,8 @@ button.close {
 }
 .navbar-brand {
   display: block;
-  max-width: 200px;
   margin-left: auto;
   margin-right: auto;
-  padding: 15px 15px;
   font-size: 18px;
   font-weight: 500;
   line-height: 20px;
