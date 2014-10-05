@@ -4258,7 +4258,7 @@ input[type=file] {
   margin-bottom: 20px;
 }
 #article-container {
-  margin-top: 20px;
+  /*margin-top: 20px;*/
 }
 #wiki-footer {
   padding: 30px 0;
