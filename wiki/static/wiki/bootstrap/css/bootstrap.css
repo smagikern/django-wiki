@@ -204,7 +204,7 @@ input::-moz-focus-inner {
 }
 
 textarea {
-  overflow: auto;
+  overflow: visible; 
   vertical-align: top;
 }
 
