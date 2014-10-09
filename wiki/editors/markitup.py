@@ -34,7 +34,7 @@ class MarkItUpWidget(forms.Widget):
     def __init__(self, attrs=None):
         # The 'rows' and 'cols' attributes are required for HTML correctness.
         default_attrs = {'class': 'markItUp',
-                         'rows': '10', 'cols': '40',}
+                         'rows': '10', 'cols': '60',}
         if attrs:
             default_attrs.update(attrs)
         super(MarkItUpWidget, self).__init__(default_attrs)
