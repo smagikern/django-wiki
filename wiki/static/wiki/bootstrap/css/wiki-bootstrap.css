@@ -613,7 +613,7 @@ pre code {
 }
 .container {
   margin-right: auto;
-  padding-left: 5%;margin-left: auto;
+  padding-left: 20%;margin-left: auto;
 }
 .container:before,
 .container:after {
