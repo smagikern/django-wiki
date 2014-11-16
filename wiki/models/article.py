@@ -20,7 +20,7 @@ from django.core.urlresolvers import reverse
 
 class ArticleRead(models.Model):
     article_id = models.ForeignKey('Article', on_delete=models.SET_NULL)
-    user = models.ForeignKey(compat.USER_MODEL, verbose_name=_('own'),
+    reader = models.ForeignKey(compat.USER_MODEL, verbose_name=_('own'),
                               blank=True, null=True, related_name='own_articles',
                               help_text=_('The owner of the article. The owner always has both read and write access.'),
                               on_delete=models.SET_NULL)
