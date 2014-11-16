@@ -115,7 +115,16 @@ class Migration(SchemaMigration):
             'modified': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'other_read': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
             'other_write': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
+            'paid': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
             'owner': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'owned_articles'", 'null': 'True', 'on_delete': 'models.SET_NULL', 'to': "orm['auth.User']"})
+        },
+        'wiki.articleread': {
+            'Meta': {'object_name': 'ArticleRead'},
+            'read_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'article_id': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['wiki.Article']"}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'bought': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
+            'reader': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'own_articles'", 'null': 'True', 'on_delete': 'models.SET_NULL', 'to': "orm['auth.User']"})
         },
         'wiki.articleforobject': {
             'Meta': {'unique_together': "(('content_type', 'object_id'),)", 'object_name': 'ArticleForObject'},
