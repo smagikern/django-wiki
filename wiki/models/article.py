@@ -16,6 +16,17 @@ from wiki import managers
 from mptt.models import MPTTModel
 from django.core.urlresolvers import reverse
 
+
+
+class ArticleRead(models.Model):
+    article_id = models.ForeignKey('Article', on_delete=models.SET_NULL)
+    user = models.ForeignKey(compat.USER_MODEL, verbose_name=_('own'),
+                              blank=True, null=True, related_name='own_articles',
+                              help_text=_('The owner of the article. The owner always has both read and write access.'),
+                              on_delete=models.SET_NULL)
+    bought = models.BooleanField(default=False, verbose_name=_('check p'))
+    read_date = models.DateTimeField(auto_now_add=True, verbose_name=_('read'),)
+    
 class Article(models.Model):
     
     objects = managers.ArticleManager()
@@ -44,6 +55,7 @@ class Article(models.Model):
     group_write = models.BooleanField(default=True, verbose_name=_('group write access'))
     other_read = models.BooleanField(default=True, verbose_name=_('others read access'))
     other_write = models.BooleanField(default=True, verbose_name=_('others write access'))
+    paid = models.BooleanField(default=False, verbose_name=_('liberating or commerz'))  
     
     # PERMISSIONS
     def can_read(self, user):
