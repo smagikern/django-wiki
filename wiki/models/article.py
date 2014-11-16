@@ -27,6 +27,9 @@ class ArticleRead(models.Model):
     bought = models.BooleanField(default=False, verbose_name=_('check p'))
     read_date = models.DateTimeField(auto_now_add=True, verbose_name=_('read'),)
     
+    def __unicode__(self):
+        return self.article_id
+    
 class Article(models.Model):
     
     objects = managers.ArticleManager()
