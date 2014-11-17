@@ -21,7 +21,7 @@ class Migration(SchemaMigration):
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('reader', self.gf('django.db.models.fields.related.ForeignKey')(to=orm[user_orm_label], null=True, blank=True)),
             ('article_id', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['wiki.Article'])),
-            ('read_date', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True))
+            ('read_date', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
             ('bought', self.gf('django.db.models.fields.BooleanField')(default=False)),
         ))
         db.send_create_signal('wiki', ['ArticleRead'])
