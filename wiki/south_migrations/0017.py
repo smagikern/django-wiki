@@ -17,7 +17,7 @@ class Migration(SchemaMigration):
 
     def forwards(self, orm):
 
-        db.alter_column('auth_user', 'balance', self.gf('django.db.models.fields.FloatField')(max_length=100, default=0))
+        db.alter_column('auth_user', 'balance', self.gf('django.db.models.fields.FloatField')(max_length=100, null=True))
         
     def backwards(self, orm):
         
