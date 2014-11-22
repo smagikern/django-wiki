@@ -17,11 +17,11 @@ class Migration(SchemaMigration):
 
     def forwards(self, orm):
 
-        db.add_column('auth.user', 'balance', self.gf('django.db.models.fields.CharField')(max_length=100))
+        db.add_column('auth_user', 'balance', self.gf('django.db.models.fields.CharField')(max_length=100))
         
     def backwards(self, orm):
         
-        db.delete_column('auth.user', 'balance')
+        db.delete_column('auth_user', 'balance')
         
     models = {
         'auth.group': {
