@@ -23,9 +23,12 @@ class Migration(SchemaMigration):
             ('balance', self.gf('django.db.models.fields.related.FloatField')(max_length=100, null=True)),
         ))
         
+        db.delete_column('auth_user', 'balance')
+        
     def backwards(self, orm):
         
         db.delete_table('wiki_profile')
+        db.add_column('auth_user', 'balance', self.gf('django.db.models.fields.CharField')(max_length=100, null=True))
         
     models = {
         'auth.group': {
