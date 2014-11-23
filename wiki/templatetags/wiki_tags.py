@@ -45,12 +45,14 @@ def article_for_object(context, obj):
     return _cache[obj]
 
 from django.contrib.auth.models import User
-from .models import profile
+#from .models import profile
+from django.db.models.loading import get_model
 
 @register.inclusion_tag('wiki/includes/render.html', takes_context=True)
 def wiki_render(context, article, preview_content=None):
     request = context['request']
     userNB='up'
+    profile = get_model('wiki', 'profile')
     if preview_content:
         content = article.render(preview_content=preview_content)
     else:
