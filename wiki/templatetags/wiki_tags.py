@@ -10,7 +10,7 @@ from django.utils.safestring import mark_safe
 from django.template.defaultfilters import striptags
 from django.utils.http import urlquote
 from six.moves import filter
-
+import requests
 register = template.Library()
 
 from wiki.conf import settings
