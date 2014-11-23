@@ -53,7 +53,7 @@ def wiki_render(context, article, preview_content=None):
         content = article.render(preview_content=preview_content)
     else:
         content = None
-    user_profile = User.objects.get(id=self.request.user.id)
+    user_profile = User.objects.get(id=request.user.id)
     userNB="Hi "+user_profile.first_name+", "+"user_profile.last_name"+"<br>"+user_profile.balance
     context.update({
         'article': article,
