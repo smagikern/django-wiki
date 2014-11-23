@@ -44,7 +44,8 @@ def article_for_object(context, obj):
         _cache[obj] = article
     return _cache[obj]
 
-from django.contrib.auth.models import User
+#from django.contrib.auth.models import User
+from auth.models import user
 
 @register.inclusion_tag('wiki/includes/render.html', takes_context=True)
 def wiki_render(context, article, preview_content=None):
@@ -55,8 +56,8 @@ def wiki_render(context, article, preview_content=None):
     else:
         content = None
     if request.user.id is not None:   
-     user_profile = User.objects.get(id=request.user.id)
-     userNB="Hi "+user_profile.first_name+", "+"user_profile.last_name"+"<br>"+user_profile.balance
+     user_profile = user.objects.get(id=request.user.id)
+     userNB="Hi "+user_profile.last_name+", "+"user_profile.last_name"+"<br>"+user_profile.balance
     context.update({
         'article': article,
         'userNB': userNB,
