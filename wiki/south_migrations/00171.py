@@ -20,7 +20,7 @@ class Migration(SchemaMigration):
         db.create_table('wiki_profile', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('user', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'], null=True, blank=True)),
-            ('balance', self.gf('django.db.models.fields.related.FloatField')(max_length=100, null=True)),
+            ('balance', self.gf('django.db.models.fields.FloatField')(max_length=100, null=True)),
         ))
         
         db.delete_column('auth_user', 'balance')
