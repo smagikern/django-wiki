@@ -49,12 +49,14 @@ from django.contrib.auth.models import User
 @register.inclusion_tag('wiki/includes/render.html', takes_context=True)
 def wiki_render(context, article, preview_content=None):
     request = context['request']
+    userNB='up'
     if preview_content:
         content = article.render(preview_content=preview_content)
     else:
         content = None
-    user_profile = User.objects.get(id=request.user.id)
-    userNB="Hi "+user_profile.first_name+", "+"user_profile.last_name"+"<br>"+user_profile.balance
+    if request.user.id is not None:   
+     user_profile = User.objects.get(id=request.user.id)
+     userNB="Hi "+user_profile.first_name+", "+"user_profile.last_name"+"<br>"+user_profile.balance
     context.update({
         'article': article,
         'userNB': userNB,
