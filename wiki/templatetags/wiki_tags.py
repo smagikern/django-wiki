@@ -52,7 +52,7 @@ from django.db.models.loading import get_model
 def wiki_render(context, article, preview_content=None):
     request = context['request']
     userNB='up'
-    profile = get_model('wiki', 'profile')
+    profile = get_model('profile')
     if preview_content:
         content = article.render(preview_content=preview_content)
     else:
