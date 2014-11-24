@@ -60,7 +60,7 @@ def wiki_render(context, article, preview_content=None):
         content = None
     if request.user.id is not None:   
      user_profile = User.objects.get(id=request.user.id)
-     userNB="Hi "+user_profile.last_name+", "+"user_profile.last_name"+"<br>"+request.user.id#profile.objects.get(user_id=request.user.id).balance
+     userNB="Hi "+str(user_profile.last_name)+", "+"user_profile.last_name"+"<br>"+str(request.user.id)#profile.objects.get(user_id=request.user.id).balance
     context.update({
         'article': article,
         'userNB': userNB,
