@@ -3,7 +3,7 @@ import re
 
 from django.conf import settings as django_settings
 from django import template
-from django.contrib.contenttypes.models1 import ContentType
+from django.contrib.contenttypes.models import ContentType
 from django.db.models import Model
 from django.forms import BaseForm
 from django.utils.safestring import mark_safe
@@ -47,7 +47,7 @@ def article_for_object(context, obj):
 from django.contrib.auth.models import User
 #from .models import profile
 #from django.db.models.loading import get_model
-from myproject.models import WikiProfile
+from models import WikiProfile #myproject.
 
 @register.inclusion_tag('wiki/includes/render.html', takes_context=True)
 def wiki_render(context, article, preview_content=None):
