@@ -47,7 +47,7 @@ def article_for_object(context, obj):
 from django.contrib.auth.models import User
 #from .models import profile
 #from django.db.models.loading import get_model
-#from myproject.models import WikiProfile #myproject.
+from models import WikiProfile #myproject.
 
 @register.inclusion_tag('wiki/includes/render.html', takes_context=True)
 def wiki_render(context, article, preview_content=None):
