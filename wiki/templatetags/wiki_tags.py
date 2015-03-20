@@ -14,7 +14,7 @@ import requests
 register = template.Library()
 
 from wiki.conf import settings
-from wiki import models
+from wiki import models11
 from wiki.core.plugins import registry as plugin_registry
 
 # Cache for looking up objects for articles... article_for_object is
