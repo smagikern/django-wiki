@@ -36,10 +36,10 @@ def article_for_object(context, obj):
     # Maybe store cache in the request object?
     if True or not obj in _cache.keys():
         try:
-            article = models.ArticleForObject.objects.get(
+            article = models1.ArticleForObject.objects.get(
                 content_type=content_type,
                 object_id=obj.pk).article
-        except models.ArticleForObject.DoesNotExist:
+        except models1.ArticleForObject.DoesNotExist:
             article = None
         _cache[obj] = article
     return _cache[obj]
