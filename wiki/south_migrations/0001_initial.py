@@ -33,11 +33,13 @@ class Migration(SchemaMigration):
             ('read', self.gf('django.db.models.fields.BooleanField')(default=True)),
             ('article', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['wiki.Article']))
         ))
+        db.send_create_signal(u'wiki', ['ArticleRead'])
         db.create_table(u'wiki_profile', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('balance', self.gf('django.db.models.fields.FloatField')(max_length=15, null=True, blank=True)),
             ('user', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name=u'user', null=True, on_delete=models.SET_NULL, to=orm['auth.User'])),
         ))
+        db.send_create_signal(u'wiki', ['Profile'])
         # Adding model 'ArticleForObject'
         db.create_table(u'wiki_articleforobject', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
