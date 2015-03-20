@@ -3,8 +3,8 @@ import re
 
 from django.conf import settings as django_settings
 from django import template
-from django.contrib.contenttypes.models import ContentType
-from django.db.models1 import Model
+from django.contrib.contenttypes.models1 import ContentType
+from django.db.models import Model
 from django.forms import BaseForm
 from django.utils.safestring import mark_safe
 from django.template.defaultfilters import striptags
