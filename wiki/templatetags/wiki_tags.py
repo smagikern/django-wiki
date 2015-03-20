@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import re
-jkjkkkkk
+
 from django.conf import settings as django_settings
 from django import template
 from django.contrib.contenttypes.models import ContentType
