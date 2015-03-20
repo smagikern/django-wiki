@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-import re11
+import re
 
 from django.conf import settings as django_settings
 from django import template
-from django.contrib.contenttypes.models1 import ContentType
-from django.db.models1 import Model
+from django.contrib.contenttypes.models import ContentType
+from django.db.models import Model
 from django.forms import BaseForm
 from django.utils.safestring import mark_safe
 from django.template.defaultfilters import striptags
@@ -14,7 +14,7 @@ import requests
 register = template.Library()
 
 from wiki.conf import settings
-from wiki import models1
+from wiki import models
 from wiki.core.plugins import registry as plugin_registry
 
 # Cache for looking up objects for articles... article_for_object is
@@ -36,18 +36,18 @@ def article_for_object(context, obj):
     # Maybe store cache in the request object?
     if True or not obj in _cache.keys():
         try:
-            article = models1.ArticleForObject.objects.get(
+            article = models.ArticleForObject.objects.get(
                 content_type=content_type,
                 object_id=obj.pk).article
-        except models1.ArticleForObject.DoesNotExist:
+        except models.ArticleForObject.DoesNotExist:
             article = None
         _cache[obj] = article
     return _cache[obj]
 
-from django.contrib.auth.models1 import User
+from django.contrib.auth.models import User
 #from .models import profile
 #from django.db.models.loading import get_model
-from myproject.models1 import WikiProfile #myproject.
+from models import WikiProfile #myproject.
 
 @register.inclusion_tag('wiki/includes/render.html', takes_context=True)
 def wiki_render(context, article, preview_content=None):
