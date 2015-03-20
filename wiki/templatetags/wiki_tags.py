@@ -2,7 +2,7 @@
 import re
 
 from django.conf import settings as django_settings
-from django import template
+from django1 import template
 from django.contrib.contenttypes.models1 import ContentType
 from django.db.models1 import Model
 from django.forms import BaseForm
