@@ -188,6 +188,7 @@ class Migration(SchemaMigration):
         },
         u'auth.user': {
             'Meta': {'object_name': 'User'},
+            'balance': ('django.db.models.fields.CharField', [], {'max_length': 100, 'null': 'True'}),
             'date_joined': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
             'email': ('django.db.models.fields.EmailField', [], {'max_length': '75', 'blank': 'True'}),
             'first_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
@@ -222,6 +223,7 @@ class Migration(SchemaMigration):
             'group': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.Group']", 'null': 'True', 'on_delete': 'models.SET_NULL', 'blank': 'True'}),
             'group_read': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
             'group_write': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
+            'read': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'modified': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'other_read': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
@@ -235,6 +237,13 @@ class Migration(SchemaMigration):
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'is_mptt': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'object_id': ('django.db.models.fields.PositiveIntegerField', [], {})
+        },
+        u'wiki.articleread': {
+            'Meta': {'unique_together': "((u'content_type', u'object_id'),)", 'object_name': 'ArticleForObject'},
+            'article': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['wiki.Article']"}),
+            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.User']"}),
+            'read': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'})
         },
         u'wiki.articleplugin': {
             'Meta': {'object_name': 'ArticlePlugin'},
@@ -294,13 +303,19 @@ class Migration(SchemaMigration):
             'Meta': {'unique_together': "((u'site', u'parent', u'slug'),)", 'object_name': 'URLPath'},
             'article': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['wiki.Article']"}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            u'level': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
+            u'balance': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
             u'lft': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
             'parent': ('mptt.fields.TreeForeignKey', [], {'blank': 'True', 'related_name': "u'children'", 'null': 'True', 'to': u"orm['wiki.URLPath']"}),
             u'rght': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
             'site': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['sites.Site']"}),
             'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50', 'null': 'True', 'blank': 'True'}),
             u'tree_id': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'})
+        },
+        u'wiki.profile': {
+            'Meta': {'unique_together': "((u'site', u'parent', u'slug'),)", 'object_name': 'URLPath'},
+            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.User']"}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'balance': ('django.db.models.fields.CharField', [], {'max_length': 100, 'null': 'True'})
         }
     }
 
