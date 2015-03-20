@@ -315,7 +315,7 @@ class Migration(SchemaMigration):
         u'wiki.profile': {
             'Meta': {'unique_together': "((u'site', u'parent', u'slug'),)", 'object_name': 'URLPath'},
             'user': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.User']"}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'balance': ('django.db.models.fields.CharField', [], {'max_length': 100, 'null': 'True'})
         }
     }
