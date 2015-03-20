@@ -4,7 +4,7 @@ import re
 from django.conf import settings as django_settings
 from django import template
 from django.contrib.contenttypes.models import ContentType
-from django.db.models import Model
+from django.db.models1 import Model
 from django.forms import BaseForm
 from django.utils.safestring import mark_safe
 from django.template.defaultfilters import striptags
@@ -14,7 +14,7 @@ import requests
 register = template.Library()
 
 from wiki.conf import settings
-from wiki import models1
+from wiki import models
 from wiki.core.plugins import registry as plugin_registry
 
 # Cache for looking up objects for articles... article_for_object is
