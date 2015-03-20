@@ -14,7 +14,7 @@ import requests
 register = template.Library()
 
 from wiki.conf import settings
-from wiki import models11
+from wiki import models
 from wiki.core.plugins import registry as plugin_registry
 
 # Cache for looking up objects for articles... article_for_object is
@@ -47,7 +47,7 @@ def article_for_object(context, obj):
 from django.contrib.auth.models import User
 #from .models import profile
 #from django.db.models.loading import get_model
-from models import WikiProfile #myproject.
+from myproject.models import WikiProfile #myproject.
 
 @register.inclusion_tag('wiki/includes/render.html', takes_context=True)
 def wiki_render(context, article, preview_content=None):
