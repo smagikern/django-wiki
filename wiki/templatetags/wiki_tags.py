@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-import re
+import re11
 
 from django.conf import settings as django_settings
-from django1 import template
+from django import template
 from django.contrib.contenttypes.models1 import ContentType
 from django.db.models1 import Model
 from django.forms import BaseForm
