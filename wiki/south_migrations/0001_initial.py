@@ -19,6 +19,7 @@ class Migration(SchemaMigration):
             ('group_read', self.gf('django.db.models.fields.BooleanField')(default=True)),
             ('group_write', self.gf('django.db.models.fields.BooleanField')(default=True)),
             ('other_read', self.gf('django.db.models.fields.BooleanField')(default=True)),
+            ('paid', self.gf('django.db.models.fields.BooleanField')(default=False)),
             ('other_write', self.gf('django.db.models.fields.BooleanField')(default=True)),
         ))
         db.send_create_signal(u'wiki', ['Article'])
