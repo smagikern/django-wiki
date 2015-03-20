@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import re
-
+jkjkkkkk
 from django.conf import settings as django_settings
 from django import template
 from django.contrib.contenttypes.models import ContentType
@@ -14,7 +14,7 @@ import requests
 register = template.Library()
 
 from wiki.conf import settings
-from wiki1 import models
+from wiki import models
 from wiki.core.plugins import registry as plugin_registry
 
 # Cache for looking up objects for articles... article_for_object is
