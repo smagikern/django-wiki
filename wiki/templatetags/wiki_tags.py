@@ -67,7 +67,7 @@ def wiki_render(context, article, preview_content=None):
     
     context.update({
         'article': article,
-        'userNB': lastname,
+        'userov': lastname,
         'content': content,
         'preview': not preview_content is None,
         'plugins': plugin_registry.get_plugins(),
