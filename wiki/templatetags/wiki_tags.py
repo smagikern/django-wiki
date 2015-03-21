@@ -54,14 +54,15 @@ def wiki1(request):
         lastname = request.user.last_name
 
 @register.inclusion_tag('wiki/includes/render.html', takes_context=True)
-def wiki_render(context, article, self, preview_content=None):
+def wiki_render(context, article, preview_content=None):
 
     if preview_content:
         content = article.render(preview_content=preview_content)
     else:
         content = None
+    if user.is_authenticated():
+        lastname = user.last_name
     
-    wiki1(self)
     context.update({
         'article': article,
         'userNB': lastname,
