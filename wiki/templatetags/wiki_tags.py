@@ -56,13 +56,13 @@ def wiki1(request):
 
 @register.inclusion_tag('wiki/includes/render.html', takes_context=True)
 def wiki_render(context, article, preview_content=None):
-
+    request = context['request']
     if preview_content:
         content = article.render(preview_content=preview_content)
     else:
         content = None
-    #if request.user.is_authenticated():
-     #   lastname = request.user.last_name
+    if request.user.is_authenticated():
+        lastname = request.user.last_name
     
     context.update({
         'article': article,
