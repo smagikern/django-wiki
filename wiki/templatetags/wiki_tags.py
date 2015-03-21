@@ -47,7 +47,7 @@ def article_for_object(context, obj):
         _cache[obj] = article
     return _cache[obj]
 
-lastname=None
+
 
 @register.inclusion_tag('wiki/includes/render.html', takes_context=True)
 def wiki1(request):
@@ -57,6 +57,7 @@ def wiki1(request):
 @register.inclusion_tag('wiki/includes/render.html', takes_context=True)
 def wiki_render(context, article, preview_content=None):
     request = context['request']
+    lastname=None
     if preview_content:
         content = article.render(preview_content=preview_content)
     else:
