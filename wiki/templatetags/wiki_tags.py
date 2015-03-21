@@ -48,14 +48,18 @@ def article_for_object(context, obj):
 
 
 @register.inclusion_tag('wiki/includes/render.html', takes_context=True)
-def wiki_render(context, article, preview_content=None):
+def wiki_render(request,context, article, preview_content=None):
 
     if preview_content:
         content = article.render(preview_content=preview_content)
     else:
         content = None
+    lastname=None
+    if request.user.is_authenticated():
+        lastname = request.user.last_name
     context.update({
         'article': article,
+        'userNB': lastname,
         'content': content,
         'preview': not preview_content is None,
         'plugins': plugin_registry.get_plugins(),
