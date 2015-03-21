@@ -61,7 +61,7 @@ def wiki_render(context, article, preview_content=None):
     else:
         content = None
     
-    wiki1(request)
+    wiki1(self)
     context.update({
         'article': article,
         'userNB': lastname,
