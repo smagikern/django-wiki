@@ -11,6 +11,7 @@ from django.forms import BaseForm
 from django.utils.safestring import mark_safe
 from django.template.defaultfilters import striptags
 from django.utils.http import urlquote
+from models import User
 from six.moves import filter
 
 register = template.Library()
