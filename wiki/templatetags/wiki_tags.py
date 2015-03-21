@@ -55,8 +55,8 @@ def wiki_render(context, article, preview_content=None):
     else:
         content = None
     lastname=None
-    if request.user.is_authenticated():
-        lastname = request.user.last_name
+    if self.request.user.is_authenticated():
+        lastname = self.request.user.last_name
     context.update({
         'article': article,
         'userNB': lastname,
