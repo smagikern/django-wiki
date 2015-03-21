@@ -48,6 +48,7 @@ def article_for_object(context, obj):
 
 lastname=None
 
+@register.inclusion_tag('wiki/includes/render.html', takes_context=True)
 def wiki1(request):
     if request.user.is_authenticated():
         lastname = request.user.last_name
