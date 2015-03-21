@@ -54,7 +54,7 @@ def wiki1(request):
         lastname = request.user.last_name
 
 @register.inclusion_tag('wiki/includes/render.html', takes_context=True)
-def wiki_render(context, article, preview_content=None,self):
+def wiki_render(context, article, self, preview_content=None):
 
     if preview_content:
         content = article.render(preview_content=preview_content)
