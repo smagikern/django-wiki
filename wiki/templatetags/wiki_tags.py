@@ -48,7 +48,7 @@ def article_for_object(context, obj):
 
 
 @register.inclusion_tag('wiki/includes/render.html', takes_context=True)
-def wiki_render(request,context, article, preview_content=None):
+def wiki_render(context, article, preview_content=None,request):
 
     if preview_content:
         content = article.render(preview_content=preview_content)
