@@ -14,6 +14,22 @@ from django.utils.http import urlquote
 from django.contrib.auth.models import User
 from six.moves import filter
 
+
+import datetime
+from paypal.standard.forms import PayPalPaymentsForm
+from django.core.context_processors import csrf
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse
+from models import PaypalIpn as paypal_ipn
+from django.conf import settings
+from django.shortcuts import render_to_response
+from django.shortcuts import redirect
+from paypal.standard.models import ST_PP_COMPLETED
+from django.views.decorators.csrf import csrf_exempt
+from paypal.standard.ipn.signals import valid_ipn_received
+
+
+
 register = template.Library()
 
 from wiki.conf import settings
