@@ -9,6 +9,9 @@ class Migration(SchemaMigration):
 
     def forwards(self, orm):
         # Adding model 'Article'
+        
+        db.add_column('auth_user', 'balance', self.gf('django.db.models.fields.FloatField')(max_length=100, null=True))
+        
         db.create_table(u'wiki_article', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('current_revision', self.gf('django.db.models.fields.related.OneToOneField')(blank=True, related_name=u'current_set', unique=True, null=True, to=orm['wiki.ArticleRevision'])),
@@ -149,6 +152,8 @@ class Migration(SchemaMigration):
 
 
     def backwards(self, orm):
+        
+        db.delete_column('auth_user', 'balance')
         # Removing unique constraint on 'URLPath', fields ['site', 'parent', 'slug']
         db.delete_unique(u'wiki_urlpath', ['site_id', 'parent_id', 'slug'])
 
