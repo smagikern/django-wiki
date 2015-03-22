@@ -57,6 +57,22 @@ def wiki1(request):
 @register.inclusion_tag('wiki/includes/render.html', takes_context=True)
 def wiki_render(context, article, preview_content=None):
     request = context['request']
+    if request.user.is_authenticated():
+     adding = paypal_ipn.objects.create(flag='1',username=request.user.id,amoun$
+    invoice_id=paypal_ipn.objects.latest('id')
+    print invoice_id   # What you want the button to do.
+    paypal_dict = {
+        "business": settings.PAYPAL_RECEIVER_EMAIL,
+        "amount": "10.00",
+        "item_name": "Wiki money",
+        "invoice": invoice_id,
+        "notify_url": "http://52.11.183.14/notify/",
+        "return_url": "http://52.11.183.14/return/",
+        "cancel_return": "http://52.11.183.14/return/",
+        'custom':str(request.user.id),
+        'currency_code': 'USD',
+    }
+    form = PayPalPaymentsForm(initial=paypal_dict)
     lastname="matilda"
     if preview_content:
         content = article.render(preview_content=preview_content)
@@ -67,6 +83,7 @@ def wiki_render(context, article, preview_content=None):
     
     context.update({
         'article': article,
+        'form': form,
         'userov': lastname,
         'content': content,
         'preview': not preview_content is None,
