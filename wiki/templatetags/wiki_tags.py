@@ -20,7 +20,7 @@ from paypal.standard.forms import PayPalPaymentsForm
 from django.core.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
-from models import PaypalIpn as paypal_ipn
+from myproject.models import PaypalIpn as paypal_ipn
 from django.conf import settings
 from django.shortcuts import render_to_response
 from django.shortcuts import redirect
