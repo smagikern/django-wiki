@@ -78,7 +78,7 @@ def wiki_render(context, article, preview_content=None):
     invoice_id=paypal_ipn.objects.latest('id')
     print invoice_id   # What you want the button to do.
     paypal_dict = {
-        "business": settings.PAYPAL_RECEIVER_EMAIL,
+        "business": "smagikern@hotmail.com",
         "amount": "10.00",
         "item_name": "Wiki money",
         "invoice": invoice_id,
