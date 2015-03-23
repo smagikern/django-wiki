@@ -54,7 +54,7 @@
                 </li>
                 <li>
                 {% if user.is_authenticated %}
-                 {{ user.last_name }} matilda
+                 {{ user.last_name   }} matilda {{ datetime.datetime.now() }}
                 {% else %}
                    <a href="simple/login/fb"><img style="height:30px;" src="http://upload.wikimedia.org/wikipedia/commons/c/c2/F_icon.svg"> Facebook</a>
                 {% endif %}
