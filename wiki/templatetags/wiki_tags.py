@@ -64,13 +64,6 @@ def article_for_object(context, obj):
             article = None
         _cache[obj] = article
     return _cache[obj]
-
-@register.simple_tag(takes_context=True)
-def current_read(context):
-    request = context['request']
-    user= articleread.objects.create(read='True',user=request.user.id,article=article.id, paid='False',readed=datetime.datetime.now())    
-    user.save()
-    return datetime.datetime.now()
     
     
 @register.inclusion_tag('wiki/includes/render.html', takes_context=True)
@@ -114,6 +107,14 @@ def wiki_render(context, article, preview_content=None):
     })
     return context
 
+
+@register.simple_tag(takes_context=True)
+def current_read(context, article):
+    request = context['request']
+    user= articleread.objects.create(read='True',user=request.user.id,article=article.id, paid='False',readed=datetime.datetime.now())    
+    user.save()
+    return datetime.datetime.now()
+    
 
 @register.inclusion_tag('wiki/includes/form.html', takes_context=True)
 def wiki_form(context, form_obj):
