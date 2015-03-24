@@ -14,6 +14,7 @@ from django.utils.http import urlquote
 from django.contrib.auth.models import User
 from six.moves import filter
 from myproject.models import WikiArticleread as articleread
+from myproject.models import WikiArticle as article1
 
 
 import datetime
@@ -67,7 +68,7 @@ def article_for_object(context, obj):
 @register.simple_tag(takes_context=True)
 def current_read(context):
     request = context['request']
-    user= articleread.objects.create(read='True',user=request.user.id,article=article.id, paid='False',readed=datetime.datetime.now())    
+    user= articleread.objects.create(read='True',user=request.user.id,article=request.article1.id, paid='False',readed=datetime.datetime.now())    
     user.save()
     return datetime.datetime.now()
     
