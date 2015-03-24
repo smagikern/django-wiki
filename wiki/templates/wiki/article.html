@@ -10,12 +10,11 @@
 {% endblock %}
 
 {% block wiki_contents %}
-{{ article.id }}
   <div id="article-container">
     <ul class="nav nav-pills" id="article-menu">
       <li class="pull-left" id="article-title-li">
         <h1 id="article-title">
-        {% if articleread.paid %}  <!-- not article.paid or    --> <!--   wiki_render  -->
+        {% if not articleread.paid %}  <!-- not article.paid or    --> <!--   wiki_render  -->
           {{ article.current_revision.title }}
           <small style="font-size: 14px;">
             {% if urlpath.parent %}
@@ -27,7 +26,8 @@
           </small>
         {% else %}
         <form action="/buy/">
-        <input type="submit" value={{ article.id }}>
+        <input type="hidden" name="id" value={{ article.id }}>
+        <input type="submit" value="Buy it 1$">
         </form>
         {% endif %}
         </h1>
