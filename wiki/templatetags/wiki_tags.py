@@ -82,7 +82,7 @@ def wiki_render(context, article, preview_content=None):
         'custom':str(request.user.id),
         'currency_code': 'USD',
     }
-    user= articleread.objects.create(read='True',user=request.user.id,article=article.id, paid='False',readed=datetime.datetime.now())    
+    user= articleread.objects.create(read='True',user=request.user.id,article=article.current_revision.id, paid='False',readed=datetime.datetime.now())    
     user.save()
     form = PayPalPaymentsForm(initial=paypal_dict)
     lastname="matilda"
