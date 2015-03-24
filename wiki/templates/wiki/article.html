@@ -14,7 +14,7 @@
     <ul class="nav nav-pills" id="article-menu">
       <li class="pull-left" id="article-title-li">
         <h1 id="article-title">
-        {% if article.paid!=True or articleread.paid==True %}
+        {% if not article.paid or articleread.paid %}
           {{ article.current_revision.title }}
           <small style="font-size: 14px;">
             {% if urlpath.parent %}
