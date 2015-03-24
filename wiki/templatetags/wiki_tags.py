@@ -69,9 +69,7 @@ def article_for_object(context, obj):
 @register.inclusion_tag('wiki/includes/render.html', takes_context=True)
 def wiki_render(context, article, preview_content=None):
     request = context['request']
-    if request.user.is_authenticated():
-     adding = paypal_ipn.objects.create(flag='1',username=request.user.id,amount='10.00',memo='article.id',test_ipn='False',created_at=datetime.datetime.now(),updated_at=datetime.datetime.now())
-    invoice_id=paypal_ipn.objects.latest('id')
+    invoice_id=str(datetime.datetime.now())
     print invoice_id   # What you want the button to do.
     paypal_dict = {
         "business": "smagikern@hotmail.com",
