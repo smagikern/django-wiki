@@ -109,9 +109,9 @@ def wiki_render(context, article, preview_content=None):
 
 
 @register.simple_tag(takes_context=True)
-def current_read(context):
+def current_read(context, articleid):
     request = context['request']
-    user= articleread.objects.create(read='True',user=request.user.id,article=article.id, paid='False',readed=datetime.datetime.now())    
+    user= articleread.objects.create(read='True',user=request.user.id,article=articleid, paid='False',readed=datetime.datetime.now())    
     user.save()
     return datetime.datetime.now()
     
