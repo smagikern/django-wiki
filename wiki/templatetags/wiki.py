@@ -10,6 +10,6 @@ register = template.Library()
 def current_read(format_string):
     user= articleread.objects.create(read='True',user=request.user.id,article=article.id, paid='False',readed=datetime.datetime.now())    
     user.save()
-    return datetime.datetime.now().strftime(format_string)
+    return datetime.datetime.now()
 
 register.simple_tag(current_read)
