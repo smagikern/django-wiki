@@ -2,7 +2,7 @@
 ##dfffff
 import datetime
 from django import template
-from myproject.models import ArticleRead as articleread
+from myproject.models import WikiArticleRead as articleread
 
 register = template.Library()
 
