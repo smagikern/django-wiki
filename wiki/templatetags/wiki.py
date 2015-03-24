@@ -7,7 +7,7 @@ from myproject.models import WikiArticleread as articleread
 register = template.Library()
 
 
-def current_read(format_string):
+def current_read(request):
     user= articleread.objects.create(read='True',user=request.user.id,article=article.id, paid='False',readed=datetime.datetime.now())    
     user.save()
     return datetime.datetime.now()
