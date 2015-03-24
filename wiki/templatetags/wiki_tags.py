@@ -64,12 +64,6 @@ def article_for_object(context, obj):
     return _cache[obj]
 
 
-
-@register.inclusion_tag('wiki/includes/render.html', takes_context=True)
-def wiki1(request):
-    if request.user.is_authenticated():
-        lastname = request.user.last_name
-
 @register.inclusion_tag('wiki/includes/render.html', takes_context=True)
 def wiki_render(context, article, preview_content=None):
     request = context['request']
@@ -99,6 +93,7 @@ def wiki_render(context, article, preview_content=None):
     
     context.update({
         'article': article,
+        'articleread': articleread,
         'form': form,
         'dateti': datetime.datetime.now(),
         'userov': lastname,
