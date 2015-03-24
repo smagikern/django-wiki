@@ -63,7 +63,13 @@ def article_for_object(context, obj):
         _cache[obj] = article
     return _cache[obj]
 
-
+@register.simple_tag(takes_context=True)
+def current_read(request):
+    user= articleread.objects.create(read='True',user=self.request.user.id,article=article.id, paid='False',readed=datetime.datetime.now())    
+    user.save()
+    return datetime.datetime.now()
+    
+    
 @register.inclusion_tag('wiki/includes/render.html', takes_context=True)
 def wiki_render(context, article, preview_content=None):
     request = context['request']
