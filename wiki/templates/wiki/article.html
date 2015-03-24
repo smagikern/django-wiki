@@ -26,7 +26,9 @@
             {% endif %}
           </small>
         {% else %}
-        {% include "wiki/lockedbuy.html" %}
+        <form action="/buy/">
+        <input type="submit" value={{ article.id }}>
+        </form>
         {% endif %}
         </h1>
       </li>
