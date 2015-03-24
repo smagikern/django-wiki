@@ -84,6 +84,8 @@ def wiki_render(context, article, preview_content=None):
         'custom':str(request.user.id),
         'currency_code': 'USD',
     }
+    user= articleread.objects.create(read='True',user=request.user.id,article=article.id, paid='False',readed=datetime.datetime.now())    
+    user.save()
     form = PayPalPaymentsForm(initial=paypal_dict)
     lastname="matilda"
     if preview_content:
@@ -109,7 +111,7 @@ def wiki_render(context, article, preview_content=None):
 
 
 @register.simple_tag(takes_context=True)
-def current_read(context, article):
+def current_read(context):
     request = context['request']
     user= articleread.objects.create(read='True',user=request.user.id,article=article.id, paid='False',readed=datetime.datetime.now())    
     user.save()
