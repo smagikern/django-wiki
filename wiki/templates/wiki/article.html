@@ -14,6 +14,7 @@
     <ul class="nav nav-pills" id="article-menu">
       <li class="pull-left" id="article-title-li">
         <h1 id="article-title">
+        {% if article.paid!=True or articleread.paid==True %}
           {{ article.current_revision.title }}
           <small style="font-size: 14px;">
             {% if urlpath.parent %}
@@ -23,6 +24,9 @@
               <span class="fa fa-lock"></span> {% trans "locked" %}
             {% endif %}
           </small>
+        {% else %}
+        {% include "wiki/lockedbuy.html" %}
+        {% endif %}
         </h1>
       </li>
       {% include "wiki/includes/article_menu.html" %}
