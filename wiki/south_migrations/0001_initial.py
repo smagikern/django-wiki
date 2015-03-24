@@ -10,7 +10,7 @@ class Migration(SchemaMigration):
     def forwards(self, orm):
         # Adding model 'Article'
         
-        db.add_column('auth_user', 'balance', self.gf('django.db.models.fields.FloatField')(max_length=100, default='0'))
+        db.add_column('auth_user', 'balance', self.gf('django.db.models.fields.FloatField')(max_length=100, default='0.1'))
         
         db.create_table(u'wiki_article', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
