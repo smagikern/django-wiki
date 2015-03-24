@@ -13,6 +13,7 @@ from django.template.defaultfilters import striptags
 from django.utils.http import urlquote
 from django.contrib.auth.models import User
 from six.moves import filter
+from myproject.models import WikiArticleread as articleread
 
 
 import datetime
