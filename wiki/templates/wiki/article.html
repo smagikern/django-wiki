@@ -8,14 +8,14 @@
 {% block wiki_breadcrumbs %}
 {% include "wiki/includes/breadcrumbs.html" %}
 {% endblock %}
-{% current_read 1 %}
+{% wiki_render %}
 {% block wiki_contents %}
 {% if articleread.paid %}
   <div id="article-container">
     <ul class="nav nav-pills" id="article-menu">
       <li class="pull-left" id="article-title-li">
         <h1 id="article-title">
-          <!-- not article.paid or    --> <!--   wiki_render  -->
+          <!-- not article.paid or    --> <!--   wiki_render  current_read -->
           {{ article.current_revision.title }}
           <small style="font-size: 14px;">
             {% if urlpath.parent %}
