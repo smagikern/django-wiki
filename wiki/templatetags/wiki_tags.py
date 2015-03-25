@@ -99,7 +99,7 @@ def wiki_render(context, article, preview_content=None):
 def current_read(context, articleid):
     request = context['request']
     #import pdb; pdb.set_trace()
-    used=articleread.objects.filter(user_id=request.user.id, article_id=articleid)[0]
+    used=articleread.objects.get(user_id=request.user.id, article_id=articleid)
     #if used!='None'
     #user=articleread.objects.create(read='True',user_id=request.user.id,article_id=articleid, paid='False',readed=datetime.datetime.now(),last=datetime.datetime.now())    
     #user.save()
