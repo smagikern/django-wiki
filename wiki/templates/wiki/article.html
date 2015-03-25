@@ -1,14 +1,13 @@
 {% extends "wiki/base.html" %}
 {% load wiki_tags i18n sekizai_tags %}
 {% load url from future %}
-
+{% current_read %} OK4
 
 {% block wiki_pagetitle %}{{ article.current_revision.title }}{% endblock %}
 
 {% block wiki_breadcrumbs %}
 {% include "wiki/includes/breadcrumbs.html" %}
 {% endblock %}
-{% current_read %}OK4
 {% block wiki_contents %}
 {% if articleread.paid %}
   <div id="article-container">
