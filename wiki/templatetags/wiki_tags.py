@@ -30,7 +30,9 @@ from paypal.standard.models import ST_PP_COMPLETED
 from django.views.decorators.csrf import csrf_exempt
 from paypal.standard.ipn.signals import valid_ipn_received
 
+import pdb as pdb_module
 
+from django.template import Library, Node
 
 register = template.Library()
 
@@ -43,6 +45,17 @@ from wiki.core.plugins import registry as plugin_registry
 _cache = {}
 
 
+class PdbNode(Node):
+
+    def render(self, context):
+        pdb_module.set_trace()
+        return ''
+
+@register.tag
+def pdb(parser, token):
+    return PdbNode()
+    
+    
 @register.assignment_tag(takes_context=True)
 def article_for_object(context, obj):
     if not isinstance(obj, Model):
