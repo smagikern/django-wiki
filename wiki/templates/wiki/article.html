@@ -8,7 +8,7 @@
 {% block wiki_breadcrumbs %}
 {% include "wiki/includes/breadcrumbs.html" %}
 {% endblock %}
-{% wiki_render %}
+{% wiki_render article %}
 {% block wiki_contents %}
 {% if articleread.paid %}
   <div id="article-container">
