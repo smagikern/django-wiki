@@ -8,7 +8,7 @@
 {% block wiki_breadcrumbs %}
 {% include "wiki/includes/breadcrumbs.html" %}
 {% endblock %}
-{% current_read 1 %}
+{{ current_read 1 }}
 {% block wiki_contents %}
 {% if articleread.paid %}
   <div id="article-container">
