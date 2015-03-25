@@ -43,17 +43,6 @@ from wiki.core.plugins import registry as plugin_registry
 # Cache for looking up objects for articles... article_for_object is
 # called more than once per page in multiple template blocks.
 _cache = {}
-
-
-class PdbNode(Node):
-
-    def render(self, context):
-        pdb_module.set_trace()
-        return ''
-
-@register.tag
-def pdb(parser, token):
-    return PdbNode()
     
     
 @register.assignment_tag(takes_context=True)
