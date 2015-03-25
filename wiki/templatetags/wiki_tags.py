@@ -102,7 +102,7 @@ def current_read(context, articleid):
     #import pdb; pdb.set_trace()
     try:
      articleread.objects.get(user_id=request.user.id, article_id=articleid)
-    except articleread.DoesNotExist::
+    except articleread.DoesNotExist:
      user=articleread.objects.create(read='True',user_id=request.user.id,article_id=articleid, paid='False',readed=datetime.datetime.now(),last=datetime.datetime.now())    
      user.save()
     return HttpResponse(used)
