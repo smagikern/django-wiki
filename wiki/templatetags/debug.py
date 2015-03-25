@@ -12,4 +12,4 @@ class PdbNode(Node):
 
 @register.tag
 def pdb(parser, token):
-    return PdbNode(
+    return PdbNode()
