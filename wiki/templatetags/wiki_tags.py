@@ -100,7 +100,7 @@ def current_read():
     import pdb; pdb.set_trace()
     #user=articleread.objects.create(read='True',user_id=request.user.id,article_id=articleid, paid='False',readed=datetime.datetime.now(),last=datetime.datetime.now())    
     #user.save()
-    return datetime.datetime.now()
+    return "OK9"
     
 
 @register.inclusion_tag('wiki/includes/form.html', takes_context=True)
