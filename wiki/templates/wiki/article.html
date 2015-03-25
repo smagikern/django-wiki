@@ -9,7 +9,7 @@
 {% include "wiki/includes/breadcrumbs.html" %}
 {% endblock %}
 {% block wiki_contents %}
-{% if not articleread.paid %}
+{% if articleread.paid %}
   <div id="article-container">
     <ul class="nav nav-pills" id="article-menu">
       <li class="pull-left" id="article-title-li">
