@@ -69,23 +69,9 @@ def article_for_object(context, obj):
 @register.inclusion_tag('wiki/includes/render.html', takes_context=True)
 def wiki_render(context, article, preview_content=None):
     request = context['request']
-    invoice_id=str(datetime.datetime.now())
-    print invoice_id   # What you want the button to do.
-    paypal_dict = {
-        "business": "smagikern@hotmail.com",
-        "amount": "10.00",
-        "item_name": "Wiki money",
-        "invoice": invoice_id,
-        "notify_url": "http://52.11.183.14/notify/",
-        "return_url": "http://52.11.183.14/return/",
-        "cancel_return": "http://52.11.183.14/return/",
-        'custom':str(request.user.id),
-        'currency_code': 'USD',
-    }
     user1=articleread.objects.create(read='True',user_id=request.user.id,article_id='1', paid='False',readed=datetime.datetime.now(),last=datetime.datetime.now())    
     user1.save()
-    form = PayPalPaymentsForm(initial=paypal_dict)
-    lastname="matilda"
+    lastname="matilda12"
     if preview_content:
         content = article.render(preview_content=preview_content)
     else:
