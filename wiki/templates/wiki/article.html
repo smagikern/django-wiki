@@ -33,7 +33,7 @@
       {% block wiki_contents_tab %}
       {% endblock %}
 {% else %}
-        <form action="/buy/" align="center">
+        <form action="/buy/" align="center" method="post">
         <input type="hidden" name="id" value={{ article.id }}>
         <input type="submit" value="Buy it 1$" class="btn btn-primary btn-lg >
         </form>
