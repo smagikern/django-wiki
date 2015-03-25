@@ -9,7 +9,7 @@
 {% include "wiki/includes/breadcrumbs.html" %}
 {% endblock %}
 {% block wiki_contents %}
-{% if not articleread.paid1 %}
+{% if not articleread.paid %}
   <div id="article-container">
     <ul class="nav nav-pills" id="article-menu">
       <li class="pull-left" id="article-title-li">
@@ -35,7 +35,7 @@
 {% else %}
         <form action="/buy/" align="center">
         <input type="hidden" name="id" value={{ article.id }}>
-        <input type="submit" value="Buy it 1$">
+        <input type="submit" value="Buy it 1$" class="btn btn-primary btn-lg >
         </form>
 {% endif %}
     </div>
