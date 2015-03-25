@@ -1,7 +1,8 @@
 {% extends "wiki/base.html" %}
 {% load wiki_tags i18n sekizai_tags %}
 {% load url from future %}
-{% current_read %} OK4
+{% pdb %} OK4
+{% current_read %}
 
 {% block wiki_pagetitle %}{{ article.current_revision.title }}{% endblock %}
 
