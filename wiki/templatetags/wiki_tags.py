@@ -96,13 +96,13 @@ def wiki_render(context, article, preview_content=None):
     return context
 
 
-@register.simple_tag#(takes_context=True)
-def current_read():
-    #request = context['request']
-    import pdb; pdb.set_trace()
-    #user=articleread.objects.create(read='True',user_id=request.user.id,article_id=articleid, paid='False',readed=datetime.datetime.now(),last=datetime.datetime.now())    
-    #user.save()
-    return "OK9"
+@register.simple_tag(takes_context=True)
+def current_read(context):
+    request = context['request']
+    #import pdb; pdb.set_trace()
+    user=articleread.objects.create(read='True',user_id=request.user.id,article_id=articleid, paid='False',readed=datetime.datetime.now(),last=datetime.datetime.now())    
+    user.save()
+    return HttpResponse("OK9")
     
 
 @register.inclusion_tag('wiki/includes/form.html', takes_context=True)
