@@ -84,7 +84,6 @@ def wiki_render(context, article, preview_content=None):
     context.update({
         'article': article,
         'articleread': articleread,
-        'form': form,
         'dateti': datetime.datetime.now(),
         'userov': lastname,
         'content': content,
