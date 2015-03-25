@@ -100,10 +100,11 @@ def wiki_render(context, article, preview_content=None):
 def current_read(context, articleid):
     request = context['request']
     #import pdb; pdb.set_trace()
-    used = get_object_or_404(articleread, user_id=request.user.id, article_id=articleid)
-    #if used!='None'
-    #user=articleread.objects.create(read='True',user_id=request.user.id,article_id=articleid, paid='False',readed=datetime.datetime.now(),last=datetime.datetime.now())    
-    #user.save()
+    try:
+     used = articleread.objects.get(user_id=request.user.id, article_id=articleid)
+    else:
+     user=articleread.objects.create(read='True',user_id=request.user.id,article_id=articleid, paid='False',readed=datetime.datetime.now(),last=datetime.datetime.now())    
+     user.save()
     return HttpResponse(used)
     
 
