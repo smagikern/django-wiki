@@ -99,11 +99,11 @@ def wiki_render(context, article, preview_content=None):
 def current_read(context, articleid):
     request = context['request']
     #import pdb; pdb.set_trace()
-    used=articleread.objects.get(user_id=request.user.id, article_id=articleid)[0]
+    used=articleread.objects.filter(user_id=request.user.id, article_id=articleid)[0]
     if used not None
      user=articleread.objects.create(read='True',user_id=request.user.id,article_id=articleid, paid='False',readed=datetime.datetime.now(),last=datetime.datetime.now())    
      user.save()
-    return 1#HttpResponse("OK9")
+    return HttpResponse(used)
     
 
 @register.inclusion_tag('wiki/includes/form.html', takes_context=True)
