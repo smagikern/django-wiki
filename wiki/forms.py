@@ -298,6 +298,7 @@ class CreateForm(forms.Form, SpamProtectionMixin):
         self.urlpath_parent = urlpath_parent
 
     title = forms.CharField(label=_('Title'),)
+    price = forms.CharField(label=_('Price'),)
     slug = forms.SlugField(
         label=_('Slug'),
         help_text=_(
