@@ -34,7 +34,8 @@ class Migration(SchemaMigration):
             ('user', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name=u'user_articles', null=True, on_delete=models.SET_NULL, to=orm['auth.User'])),
             ('paid', self.gf('django.db.models.fields.BooleanField')(default=False)),
             ('read', self.gf('django.db.models.fields.BooleanField')(default=True)),
-            ('article', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['wiki.Article']))
+            ('article', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['wiki.Article'])),
+            ('percent', self.gf('django.db.models.fields.FloatField')(default='0')),
         ))
         db.send_create_signal(u'wiki', ['ArticleRead'])
         db.create_table(u'wiki_profile', (
