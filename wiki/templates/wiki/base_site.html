@@ -1,6 +1,8 @@
 {% load sekizai_tags i18n wiki_tags %}{% load url from future %}<!DOCTYPE html>
 {% load debug %}
+{% if user.is_authenticated %}
 {% current_read article.id %}
+{% endif %}
 <html lang="en">
   <head>
     <meta charset="utf-8">
