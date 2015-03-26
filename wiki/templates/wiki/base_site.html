@@ -56,7 +56,7 @@
                 </li>
                 <li>
                 {% if user.is_authenticated %}
-                 {{ user.last_name   }} matilda {% now "Hiu" %}
+                 {{ user.last_name   }} {{ user.balance }}
                 {% else %}
                    <a href="simple/login/fb"><img style="height:30px;" src="http://upload.wikimedia.org/wikipedia/commons/c/c2/F_icon.svg"> Facebook</a>
                 {% endif %}
