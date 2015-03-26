@@ -105,7 +105,7 @@ def current_read(context, articleid):
     except articleread.DoesNotExist:
      user=articleread.objects.create(read='True',user_id=request.user.id,article_id=articleid, paid='False',readed=datetime.datetime.now(),last=datetime.datetime.now())    
      user.save()
-    return 1#HttpResponse()
+    #return ""#HttpResponse()
     
 
 @register.inclusion_tag('wiki/includes/form.html', takes_context=True)
